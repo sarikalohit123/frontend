@@ -8,16 +8,6 @@ export default defineConfig((command, mode)=>{
   return{
 
   plugins: [react()],
-  server:{
-    ...(env.VITE_DEBUG =="true" && {
-      proxy:{
-        "/api":{
-          target:"https://localhost:8000",
-          changeOrgin: true,
-          secure: false
-        }
-      }
-    })
-  }
+  base:"/frontend"
   }
 })
