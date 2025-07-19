@@ -185,7 +185,7 @@ function Warehouse(){
         e.preventDefault();  // Prevent default form behavior
       
         const res = await axios.post(
-          "http://localhost:8000/download-template-csv",
+          "https://backend-anrv.onrender.com/download-template-csv",
           { uid: getuser.split(" ")[0] }, // sending UID in body
           { responseType: "blob" }         // tell Axios to expect a file
         );
