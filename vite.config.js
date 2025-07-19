@@ -6,6 +6,6 @@ export default defineConfig((command, mode)=>{
   return{
 
   plugins: [react()],
-  base:"/frontend/"
+  base:"/"
   }
 })
