@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import getuid from "../components/getuid";
 import '../assets/css/warehouse.css'
+import wi from '../assets/imgs/waregent logo.png'
 // import Bulkuplaod from "../components/Bulkupload" ;
 // import Addrow from "../components/Addrow";
 
@@ -26,6 +27,7 @@ function Warehouse(){
     // console.log("first getuser: ",getuser)
     useEffect(() => {
         const get_table = async () =>{
+  
             if(getuser){
                 let splited=getuser.split(" ")[0]
                 const table= await axios.get('https://backend-anrv.onrender.com/get_table', {
@@ -41,7 +43,7 @@ function Warehouse(){
                 setLoading(false);
             }
             else{
-                // console.log('no user found')
+                console.log('no user found')
             }
 
         }
@@ -310,8 +312,12 @@ function Warehouse(){
             </div>:(undefined)
             }
             {loading ? (
+                
+                <div> 
+                <center><img src={wi} alt="img" style={{height:"210px"}}/></center>
                 <h1 id="load">Loading...</h1>
-            ) : table_data.length > 0  && edit_table.length === 0 ? (
+                </div>
+                ) : table_data.length > 0  && edit_table.length === 0 ? (
                 <div className="table-bg">
                     <table border="1" id="mytable">
                         <thead>

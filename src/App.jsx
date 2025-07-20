@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Warehouse from "./pages/Warehouse";
 import Login from "./pages/Login";
+import Signup from "./pages/signup";
 import axios from "axios";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/warehouse" element={<Warehouse />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/waregent" element={<Login />} />
       </Routes>
       <Footer />

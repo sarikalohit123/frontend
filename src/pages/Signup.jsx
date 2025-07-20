@@ -4,18 +4,21 @@ import { useState} from "react";
 import '../assets/css/login.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-function Login (){
+function Signup (){
     
     const navigate = useNavigate()
     const[username,setusername]=useState()
+    const[email,setemail]=useState()
     const[password, setpassword]=useState()
     const[islogged, setloged]=useState("")
       const handlechange=(e,name)=>{
             let val=(e.target.value)
             if (name=="username"){
                 setusername(val)
+            }
+            else if (name =="email"){
+                setemail(val)
             }
             else{
                 setpassword(val)
@@ -26,21 +29,17 @@ function Login (){
         e.preventDefault(); 
         let objj={
             'username':username,
+            "email":email,
             'password':password
         }
         try{
-            const res= await axios.post('https://backend-anrv.onrender.com/login', objj)
+            const res= await axios.post('https://backend-anrv.onrender.com/signup', objj)
             console.log('res',res.data)
-            if (res.data['status']=='true'){
-                localStorage.setItem('uid',username+' '+password)
-                navigate('/warehouse')
-                window.location.reload();
-
-            }
-            else if (res.data['status']=='false') {
+            if (res.data['status']=='200'){
                 localStorage.setItem('uid',username+' '+password)
                 navigate('/')
                 window.location.reload();
+
             } else {
                 console.log(res.data['status'])
             }
@@ -55,21 +54,22 @@ function Login (){
     return(
         <>
             <div className="log-head">
-                <h1>Login</h1>
+                <h1>Create Your Account With Waregent</h1>
             </div>
             <div className="login-form">
                 <form onSubmit={submitUserLogin}>
                     <label>Username</label><br/>
-                    <input type="text" value={username || ""} name='username' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "username")}/><br/><br/>
-
+                    <input type="text" value={username || ""} name='username' placeholder="enter yor username"  onChange={(e)=> handlechange(e, "username")}/><br/><br/>
+                    <label>Email</label><br/>
+                    <input type="email" value={email || ""} name='email' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "email")}/><br/><br/>
                     <label>Password</label><br/>
                     <input type="password" value={password || ""} name="pswd" placeholder="enter your password" onChange={(e)=> handlechange(e, "pswd")}/><br/><br/>
                     <input type="submit" value="SUBMIT"/>
                 </form>
-                <br/><p id="signup_link">New user <span><Link to="/Signup">Sign up ?</Link></span></p>
+                <br/><p id="signup_link">New user <span>Sign up ?</span></p>
             </div>
         </>
     )
 }
 
-export default Login
+export default Signup

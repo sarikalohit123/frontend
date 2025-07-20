@@ -30,6 +30,7 @@
 
   }
   .login-form input[type="text"],
+  .login-form input[type="email"],
   .login-form input[type="password"] {
     width: 90%;
     /* padding: 12px 16px; */
@@ -59,4 +60,12 @@
   .login-form input[type="submit"]:hover {
     background-color: rgba(255, 255, 255, 0.4);
   }
+  #signup_link{
+    justify-self: center;
+  }
+  #signp_link, span{
+    color: rgb(255, 128, 0);
+    cursor: pointer;
+  }
+
   
