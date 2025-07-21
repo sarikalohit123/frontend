@@ -1,208 +1,298 @@
-#load{
-    color: blue;
-    text-align: center;
+/* Updated Login Page Styling with Orange-Black Theme */
+
+.log-head {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: orange;
+  margin-bottom: 1.5rem;
 }
 
+.error_div {
+  background-color: rgba(255, 87, 34, 0.1);
+  color: red;
+  padding: 10px;
+  width: fit-content;
+  max-width: 300px;
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error_div #creds_check {
+  margin-left: 0.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 8vh;
+  width: 90%;
+  max-width: 400px;
+  padding: 2.5rem;
+  background-color: #111;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(255, 87, 34, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-form label {
+  margin: 0.5rem 1rem 0.25rem;
+  font-size: 1rem;
+  color: orange;
+}
+
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 90%;
+  height: 40px;
+  margin: 0 auto 1rem auto;
+  padding: 0 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #222;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  outline: none;
+  border: 1px solid orange;
+  background-color: #333;
+}
+
+.login-form input[type="submit"] {
+  height: 45px;
+  width: 92%;
+  margin: 0 auto;
+  background: linear-gradient(to right, #ff9100, #ff3d00);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+  background: #fff;
+  color: #111;
+  border: 1px solid orange;
+}
+
+#signup_link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+#signup_link span {
+  color: orange;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#signup_link span:hover {
+  color: #ff5722;
+}
+
+/* Responsive Tweak */
+@media screen and (max-width: 500px) {
+  .login-form {
+    padding: 1.5rem;
+  }
+  .log-head {
+    font-size: 1.6rem;
+  }
+}
+
+/* Warehouse Table and Popup Styling */
+
+#load {
+  color: blue;
+  text-align: center;
+}
+
+.table-bg, .editable {
+  margin: 20px auto;
+  width: 1100px;
+  height: auto;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
 
 .table-bg {
-    /* background-color: rgb(173, 175, 175); */
-    margin: 20px auto;
-    width: 1100px;
-    height: 1200px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
-.editable{
-    /* background-color: rgb(173, 175, 175); */
-    margin: 20px auto;
-    width: 1100px;
-    height: auto;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    overflow-x: scroll;
-    overflow-y: scroll;
+  height: 1200px;
 }
 
 #mytable {
-    width: 100%;
-    /* position: sticky; */
-    border-collapse: collapse;
-    background-color: white;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
 }
+
 #mytable tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .warehouse-table tbody tr:hover {
-    background-color: #e0e0e0;
-    transition: 0.2s;
+  background-color: #e0e0e0;
+  transition: 0.2s;
 }
 
 #mytable th,
 #mytable td {
-    width:500px;
-    border: 1px solid #ccc;
-    padding: 10px 5px 10px 5px;
-    text-align: center;
+  width: 500px;
+  border: 1px solid #ccc;
+  padding: 10px 5px;
+  text-align: center;
 }
 
 #mytable thead input {
-    width: 100%;
-    padding: 6px;
-    background-color: rgb(37, 32, 77);
-    border: none;
-    font-weight: bold;
-    color: white;
-    text-align: center;
+  width: 100%;
+  padding: 6px;
+  background-color: rgb(37, 32, 77);
+  border: none;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 }
 
 #mytable thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: rgb(245, 200, 155);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgb(245, 200, 155);
 }
-.btn_sec{
-    display: flex;
-    justify-self: center;
-    gap: 20px;
+
+.btn_sec,
+.bts-sec2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
-.select-btn{
-    background-color: rgb(251, 171, 59);
-    border: none;
-    margin-top: 2rem;
+
+.select-btn {
+  background-color: rgb(251, 171, 59);
+  border: none;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
 }
-.bulk-btn{
-    background-color: rgb(77, 50, 13);
-    border: none;
-    margin-top: 2rem;
+
+.bulk-btn {
+  background-color: rgb(77, 50, 13);
+  border: none;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
 }
-.bts-sec2{
-    justify-self: center;
-    display: flex;
-    gap: 2rem;
+
+#bts-s1 {
+  background-color: rgb(57, 92, 58);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  border: none;
 }
-#bts-s1{
-    background-color: rgb(57, 92, 58);
+
+#filter_form {
+  background-color: red;
+  height: 20px;
+  overflow-y: scroll;
 }
-#filter_form{
-    background-color: red;
-    height: 20px;
-    overflow-y: scroll;
-}
+
 .filter {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin: 1rem 0;
-    /* flex-wrap: wrap; */
-  }
-  
-  .filter-select{
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #f60d0d !important;
-    border-radius: 8px;
-    font-size: 1rem;
-    min-width: 2px;
-  }
-  
-  .filter-input{
-    width: 20%;
-    border: 1px solid rgb(167, 177, 255) !important;
-  }
-  .add_sec{
-    margin-top: 2rem;
-    background-color: rgb(115, 120, 179);
-    color: white;
-    border-radius:0.4rem;
-    text-align: center;
-  }
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);         
-    -webkit-backdrop-filter: blur(5px);  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  
-  .mid-body {
-    background-color: rgb(154, 153, 163);
-    padding: 2rem;
-    border-radius: 10px;
-    height: 50%;
-    overflow-y: scroll;
-    width: 90%;
-    max-width: 60%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    text-align:center;
-    align-items: center;
-    animation: popFadeIn 0.3s ease-out;
-  }
-  .mid-body form{
-    display: grid;
-    text-align: left;
-    grid-template-columns: 300px;
-    justify-content: center;
-  }
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+}
 
-  .bulk_pop_up{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);         
-    -webkit-backdrop-filter: blur(5px);  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  .bulk_pop_sub{
-    background-color: rgb(244, 245, 255);
-    padding: 2rem;
-    border-radius: 10px;
-    height: 50vh;
-    overflow-y: scroll;
-    width: 50%;
-    max-width: 60%;
-    box-shadow: 0 4px 15px rgb(37, 25, 87);
-    text-align:center;
-    align-items: center;
-    align-content: center;
-    animation: popFadeIn 0.3s ease-out;
-  }
+.filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #f60d0d !important;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 2px;
+}
 
+.filter-input {
+  width: 20%;
+  border: 1px solid rgb(167, 177, 255) !important;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
 
+.add_sec {
+  margin-top: 2rem;
+  background-color: rgb(115, 120, 179);
+  color: white;
+  border-radius: 0.4rem;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+}
 
+.popup-overlay,
+.bulk_pop_up {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.mid-body,
+.bulk_pop_sub {
+  background-color: rgb(244, 245, 255);
+  padding: 2rem;
+  border-radius: 10px;
+  overflow-y: scroll;
+  width: 90%;
+  max-width: 60%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  text-align: center;
+  align-items: center;
+  animation: popFadeIn 0.3s ease-out;
+}
 
+.mid-body {
+  background-color: rgb(154, 153, 163);
+  height: 50%;
+}
 
-
-  /* .filter-button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .filter-button:hover {
-    background-color: #0056b3;
-  } */
-  
+.mid-body form {
+  display: grid;
+  text-align: left;
+  grid-template-columns: 300px;
+  justify-content: center;
+}

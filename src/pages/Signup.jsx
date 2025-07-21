@@ -59,11 +59,11 @@ function Signup (){
             <div className="login-form">
                 <form onSubmit={submitUserLogin}>
                     <label>Username</label><br/>
-                    <input type="text" value={username || ""} name='username' placeholder="enter yor username"  onChange={(e)=> handlechange(e, "username")}/><br/><br/>
+                    <input type="text" value={username || ""} name='username' placeholder="enter yor username"  onChange={(e)=> handlechange(e, "username")} autoFocus required/><br/><br/>
                     <label>Email</label><br/>
-                    <input type="email" value={email || ""} name='email' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "email")}/><br/><br/>
+                    <input type="email" value={email || ""} name='email' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "email")} required/><br/><br/>
                     <label>Password</label><br/>
-                    <input type="password" value={password || ""} name="pswd" placeholder="enter your password" onChange={(e)=> handlechange(e, "pswd")}/><br/><br/>
+                    <input type="password" value={password || ""} name="pswd" placeholder="enter your password" onChange={(e)=> handlechange(e, "pswd")} required/><br/><br/>
                     <input type="submit" value="SUBMIT"/>
                 </form>
                 <br/><p id="signup_link">New user <span>Sign up ?</span></p>

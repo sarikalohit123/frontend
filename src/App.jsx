@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="app-wrapper">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,7 +44,7 @@ function App() {
         <Route path="/waregent" element={<Login />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

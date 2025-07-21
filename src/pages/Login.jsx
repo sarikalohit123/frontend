@@ -12,6 +12,8 @@ function Login (){
     const[username,setusername]=useState()
     const[password, setpassword]=useState()
     const[islogged, setloged]=useState("")
+    const[showerror,setshowerror]=useState(false)
+    console.log(showerror)
       const handlechange=(e,name)=>{
             let val=(e.target.value)
             if (name=="username"){
@@ -37,10 +39,11 @@ function Login (){
                 window.location.reload();
 
             }
-            else if (res.data['status']=='false') {
-                localStorage.setItem('uid',username+' '+password)
-                navigate('/')
-                window.location.reload();
+            else if (res.data['status']=='login failed') {
+                setshowerror(true)
+                setTimeout(() => {
+                    setshowerror(false);
+                  }, 10000);
             } else {
                 console.log(res.data['status'])
             }
@@ -57,16 +60,24 @@ function Login (){
             <div className="log-head">
                 <h1>Login</h1>
             </div>
+            {
+                showerror &&(
+                    <div className="error_div">
+                        <p id="creds_check">Invalid credentials</p>
+                    </div>
+                )
+            }
             <div className="login-form">
                 <form onSubmit={submitUserLogin}>
                     <label>Username</label><br/>
-                    <input type="text" value={username || ""} name='username' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "username")}/><br/><br/>
+                    <input type="text" value={username || ""} name='username' placeholder="enter yor email"  onChange={(e)=> handlechange(e, "username")} autoFocus required/><br/><br/>
 
                     <label>Password</label><br/>
-                    <input type="password" value={password || ""} name="pswd" placeholder="enter your password" onChange={(e)=> handlechange(e, "pswd")}/><br/><br/>
+                    <input type="password" value={password || ""} name="pswd" placeholder="enter your password" onChange={(e)=> handlechange(e, "pswd")} required/><br/><br/>
                     <input type="submit" value="SUBMIT"/>
                 </form>
                 <br/><p id="signup_link">New user <span><Link to="/Signup">Sign up ?</Link></span></p>
+
             </div>
         </>
     )
